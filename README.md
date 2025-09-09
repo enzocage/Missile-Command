@@ -1,5 +1,8 @@
 # Neon Command - Retro Missile Command Clone
 
+Play here: 
+http://enzocage.de/code/neon-command
+
 A faithful recreation of the classic 1980 Atari Missile Command arcade game, built with modern web technologies and authentic 80s aesthetics.
 
 ![Neon Command Gameplay](https://via.placeholder.com/800x400/000000/00ffff?text=Neon+Command+Screenshot)
