@@ -1,0 +1,444 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #00ffff;
+    font-family: 'Orbitron', monospace;
+    overflow: hidden;
+    user-select: none;
+    cursor: crosshair;
+}
+
+/* Game Container */
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at center, #001111 0%, #000000 100%);
+}
+
+/* Game Canvas */
+#gameCanvas {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+}
+
+/* Screen Overlays */
+.screen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.screen-overlay.hidden {
+    display: none;
+}
+
+.screen-content {
+    text-align: center;
+    padding: 40px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Titles */
+.game-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #00ffff;
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 30px #00ffff,
+        0 0 40px #0088ff;
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+    animation: neonFlicker 2s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 30px #00ffff,
+            0 0 40px #0088ff;
+    }
+    50% {
+        text-shadow: 
+            0 0 15px #00ffff,
+            0 0 25px #00ffff,
+            0 0 35px #00ffff,
+            0 0 50px #0088ff;
+    }
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #ff00ff;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.game-over-title, .high-scores-title, .pause-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ff00ff;
+    text-shadow: 
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff;
+    margin-bottom: 30px;
+    letter-spacing: 6px;
+}
+
+/* Neon Buttons */
+.neon-button {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 15px 40px;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.5),
+        inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.neon-button:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.8),
+        inset 0 0 20px rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.neon-button.small {
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+/* Controls Info */
+.controls-info {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.controls-info p {
+    font-size: 14px;
+    margin: 8px 0;
+    color: #00ff00;
+    letter-spacing: 1px;
+}
+
+/* Credits */
+.credits {
+    margin-top: 40px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+/* Score Display */
+.final-score {
+    margin: 30px 0;
+}
+
+.final-score p:first-child {
+    font-size: 20px;
+    color: #ffff00;
+    margin-bottom: 10px;
+}
+
+.score-value {
+    font-size: 48px;
+    font-weight: 900;
+    color: #00ffff;
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff;
+}
+
+/* High Score Entry */
+.high-score-entry {
+    margin: 30px 0;
+    padding: 20px;
+    border: 2px solid #ff00ff;
+    background: rgba(255, 0, 255, 0.05);
+}
+
+.high-score-entry p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ff00ff;
+}
+
+.name-input {
+    background: transparent;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    padding: 10px;
+    font-family: 'Orbitron', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    width: 120px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.name-input:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+/* Scores List */
+.scores-list {
+    margin: 30px 0;
+    padding: 20px;
+    min-width: 400px;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-size: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.score-row.highlight {
+    border-color: #ff00ff;
+    background: rgba(255, 0, 255, 0.1);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+    }
+}
+
+.score-rank {
+    color: #ffff00;
+    font-weight: 700;
+}
+
+.score-name {
+    color: #00ffff;
+    letter-spacing: 4px;
+}
+
+.score-points {
+    color: #00ff00;
+    font-weight: 700;
+}
+
+/* HUD */
+#gameHud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#gameHud.hidden {
+    display: none;
+}
+
+.hud-top {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+}
+
+.hud-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.score-display, .wave-display, .high-score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 14px;
+    color: #ffff00;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+}
+
+.value {
+    font-size: 28px;
+    font-weight: 900;
+    color: #00ffff;
+    letter-spacing: 3px;
+    text-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Ammo Display */
+.ammo-display {
+    display: flex;
+    gap: 100px;
+}
+
+.base-ammo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.base-ammo.depleted {
+    border-color: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.base-ammo.destroyed {
+    opacity: 0.3;
+    border-color: rgba(128, 128, 128, 0.5);
+}
+
+.base-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00ff00;
+}
+
+.ammo-count {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00ffff;
+    min-width: 30px;
+    text-align: center;
+}
+
+.base-ammo.depleted .ammo-count {
+    color: #ff0000;
+}
+
+/* CRT Effect */
+#game-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 255, 0.03) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 255, 255, 0.03) 3px
+        );
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Animation for wave complete */
+@keyframes waveComplete {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.wave-complete {
+    animation: waveComplete 1s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 48px;
+    }
+    
+    .subtitle {
+        font-size: 18px;
+    }
+    
+    .neon-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+    
+    .hud-top {
+        padding: 0 20px;
+    }
+    
+    .value {
+        font-size: 22px;
+    }
+    
+    .ammo-display {
+        gap: 40px;
+    }
+}

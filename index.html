@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Command - Retro Missile Defense</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main game canvas -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Start screen overlay -->
+        <div id="startScreen" class="screen-overlay">
+            <div class="screen-content">
+                <h1 class="game-title">NEON COMMAND</h1>
+                <p class="subtitle">DEFEND YOUR CITIES</p>
+                <button class="neon-button" id="startButton">START GAME</button>
+                <button class="neon-button" id="highScoresButton">HIGH SCORES</button>
+                <div class="controls-info">
+                    <p>MOUSE: Aim & Fire</p>
+                    <p>1-2-3: Select Base</p>
+                    <p>SPACE: Pause</p>
+                </div>
+                <div class="credits">© 2025 RETRO ARCADE</div>
+            </div>
+        </div>
+        
+        <!-- Game over screen -->
+        <div id="gameOverScreen" class="screen-overlay hidden">
+            <div class="screen-content">
+                <h1 class="game-over-title">GAME OVER</h1>
+                <div class="final-score">
+                    <p>FINAL SCORE</p>
+                    <p class="score-value" id="finalScore">0</p>
+                </div>
+                <div id="highScoreEntry" class="high-score-entry hidden">
+                    <p>NEW HIGH SCORE!</p>
+                    <p>ENTER NAME:</p>
+                    <input type="text" id="playerName" maxlength="3" placeholder="AAA" class="name-input">
+                    <button class="neon-button small" id="submitScore">SUBMIT</button>
+                </div>
+                <button class="neon-button" id="restartButton">TRY AGAIN</button>
+                <button class="neon-button" id="menuButton">MAIN MENU</button>
+            </div>
+        </div>
+        
+        <!-- High scores screen -->
+        <div id="highScoresScreen" class="screen-overlay hidden">
+            <div class="screen-content">
+                <h1 class="high-scores-title">HIGH SCORES</h1>
+                <div class="scores-list" id="scoresList">
+                    <!-- Scores will be populated here -->
+                </div>
+                <button class="neon-button" id="backButton">BACK</button>
+            </div>
+        </div>
+        
+        <!-- Pause overlay -->
+        <div id="pauseOverlay" class="screen-overlay hidden">
+            <div class="screen-content">
+                <h1 class="pause-title">PAUSED</h1>
+                <button class="neon-button" id="resumeButton">RESUME</button>
+                <button class="neon-button" id="quitButton">QUIT TO MENU</button>
+            </div>
+        </div>
+        
+        <!-- HUD elements -->
+        <div id="gameHud" class="hidden">
+            <div class="hud-top">
+                <div class="score-display">
+                    <span class="label">SCORE</span>
+                    <span class="value" id="currentScore">00000</span>
+                </div>
+                <div class="wave-display">
+                    <span class="label">WAVE</span>
+                    <span class="value" id="currentWave">01</span>
+                </div>
+                <div class="high-score-display">
+                    <span class="label">HIGH</span>
+                    <span class="value" id="highScore">00000</span>
+                </div>
+            </div>
+            <div class="hud-bottom">
+                <div class="ammo-display">
+                    <div class="base-ammo" id="base1Ammo">
+                        <span class="base-label">L</span>
+                        <span class="ammo-count">10</span>
+                    </div>
+                    <div class="base-ammo" id="base2Ammo">
+                        <span class="base-label">C</span>
+                        <span class="ammo-count">10</span>
+                    </div>
+                    <div class="base-ammo" id="base3Ammo">
+                        <span class="base-label">R</span>
+                        <span class="ammo-count">10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Load game scripts -->
+    <script src="js/entities.js"></script>
+    <script src="js/physics.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
