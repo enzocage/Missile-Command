@@ -1,7 +1,9 @@
 # Neon Command - Retro Missile Command Clone
 
-Play here: 
-http://enzocage.de/code/neon-command
+Play here: http://enzocage.de/code/neon-command
+Codepen: https://codepen.io/Felix-Schmidt2025/pen/ZYbZqKV
+Code: https://github.com/enzocage/Missile-Command
+Video: https://www.youtube.com/watch?v=J5YSj-VcTbw
 
 Comment:
 https://youtu.be/J5YSj-VcTbw
